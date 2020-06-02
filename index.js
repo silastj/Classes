@@ -1,78 +1,39 @@
-//METODO ANTIGO ( CONSTRUCTOR FUNCTION)
-function Button(text, background){
-    this.text = text;
-    this.background = background;
-}
-Button.prototype.element = function() {
-    const buttonElement = document.createElement('button');
-    buttonElement.innerText = this.text;
-    buttonElement.style.background = this.background;
-    buttonElement.classList.add('ativo');
-    return buttonElement;
-}
-const blueButton = new Button('Comprar', 'blue');
-console.log(blueButton.element());
+// SUB CLASSES COM EXTENDS
+
+// class Veiculo {
+//     constructor(rodas){
+//         this.rodas = rodas;
+//     }
+//     acelerar() {
+//         console.log('Acelerou');
+//     }
+// }
+
+// class Moto extends Veiculo {
+//     acelerar() {
+//         super.acelerar();
+//         console.log('Acelerou rapido');
+//     }
+//     empinar() {
+//         console.log('Moto empinou com ' + this.rodas + 'rodas');
+//     }
+// }
+
+// const honda = new Moto(2);
+// const civic = new Veiculo(4);
+
+// Parei 4 minutos
+
+import Countdown from './countdown.js';
+
+const diasParaONatal = new Countdown('24 December 2020 23:59:59 GMT-0300');
 
 
-// METODO NOVO ( CLASS )
-class Buttonn {
-    constructor (text, background, color) {
-        this.text = text;
-        this.background = background;
-        this.color = color;
-    }
-    element() {
-        const buttonnElement = document.createElement('button');
-        buttonnElement.innerText =  this.text;
-        buttonnElement.style.background = this.background;
-        buttonnElement.style.color = this.color;
-        buttonnElement.classList.add('active');
-        return buttonnElement;
-    }
-    appendTo(target){
-        const targetElement = document.querySelector(target);
-        targetElement.appendChild(this.element());
-        return targetElement;
-    }
-}
+console.log(diasParaONatal._futureDate.getDay());
+console.log(diasParaONatal._timeStampDiff);
+console.log(diasParaONatal.days);
+console.log(diasParaONatal.total);
 
-const blueButtonn = new Buttonn('Clique', 'red', 'white');
-
-console.log(blueButtonn.appendTo('body'));
-console.log(blueButtonn.element());
-
-
-//MERODO NOVO DE OUTRO MODO
-
-class Caixa {
-    constructor(option) {
-        this.options = this.options;
-    }
-}
-const blueOptions = {
-    backgroundColor: 'Green',
-    color: 'white',
-    text: 'Clique',
-    borderRadius: '4px',
-}
-
-// const blueButton = new Button(blueOptions);
-// blueOptions.options;
-
-
-
-//GET E SET
-// obs=> podemos deixar com default  uma propriedade no element por exemplo (div)
-
-
-const frutas = {
-    lista:[],
-    set nova(fruta) {
-        this.lista.push(fruta);
-    }
-}
-
-frutas.nova = 'Banana';
-frutas.nova = 'Morango';
-
-console.log(frutas);
+setInterval(() => {
+    console.log(diasParaONatal.total);
+}, 1000);
