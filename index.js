@@ -34,6 +34,16 @@ console.log(diasParaONatal._timeStampDiff);
 console.log(diasParaONatal.days);
 console.log(diasParaONatal.total);
 
+
+// dados.innerText = diasParaONatal.total.days;
+
 setInterval(() => {
-    console.log(diasParaONatal.total);
+    const dados = document.querySelector('#dados p:first-child');    
+    const dados1 = document.querySelector('#dados p:nth-child(2)');
+    const dados2 = document.querySelector('#dados p:nth-child(3)');
+    const dados3 = document.querySelector('#dados p:last-child');
+    dados.innerText = diasParaONatal.total.days;
+    dados1.innerText = diasParaONatal.total.hours;
+    dados2.innerText = diasParaONatal.total.minutes;
+    dados3.innerText = diasParaONatal.total.seconds;
 }, 1000);
